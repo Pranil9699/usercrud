@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.DemoProject.exception.ApiResponse;
 import com.example.DemoProject.model.User;
@@ -22,7 +23,9 @@ import com.example.DemoProject.service.UserService;
 
 @RequestMapping("/api/v1/users")
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = {"http://yourfrontend.com", "http://localhost:3000"},
+             allowedMethods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE},
+             allowedHeaders = {"Content-Type", "Authorization"})
 public class UserController {
 
 	@Autowired
