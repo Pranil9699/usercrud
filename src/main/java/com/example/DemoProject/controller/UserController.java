@@ -33,8 +33,9 @@ public class UserController {
 
 	@PostMapping("/")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
-
+                System.out.println(user.toString());
 		User createUser = this.userService.createUser(user);
+		
 		return new ResponseEntity<User>(createUser, HttpStatus.CREATED);
 	}
 
